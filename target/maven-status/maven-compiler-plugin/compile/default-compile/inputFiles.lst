@@ -1,5 +1,6 @@
 /Users/wenyao/workspace/ai/psp-demo/src/main/java/com/example/pspdemo/PspDemoApplication.java
 /Users/wenyao/workspace/ai/psp-demo/src/main/java/com/example/pspdemo/controller/PaymentOrderController.java
+/Users/wenyao/workspace/ai/psp-demo/src/main/java/com/example/pspdemo/entity/AlipayOrder.java
 /Users/wenyao/workspace/ai/psp-demo/src/main/java/com/example/pspdemo/entity/PaymentOrder.java
 /Users/wenyao/workspace/ai/psp-demo/src/main/java/com/example/pspdemo/repository/PaymentOrderRepository.java
 /Users/wenyao/workspace/ai/psp-demo/src/main/java/com/example/pspdemo/service/PaymentOrderService.java

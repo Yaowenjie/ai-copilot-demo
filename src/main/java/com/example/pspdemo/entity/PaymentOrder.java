@@ -1,8 +1,11 @@
 package com.example.pspdemo.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
+
 import java.time.LocalDate;
 
+@Data
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "payment_type", discriminatorType = DiscriminatorType.STRING)
@@ -19,13 +22,7 @@ public abstract class PaymentOrder {
     // ...getters and setters...
 }
 
-@Entity
-@DiscriminatorValue("ALIPAY")
-class AlipayOrder extends PaymentOrder {
-    private String alipayTransactionId;
-    // ...getters and setters...
-}
-
+@Data
 @Entity
 @DiscriminatorValue("WECHAT")
 class WeChatOrder extends PaymentOrder {
@@ -33,6 +30,7 @@ class WeChatOrder extends PaymentOrder {
     // ...getters and setters...
 }
 
+@Data
 @Entity
 @DiscriminatorValue("STRIPE")
 class StripeOrder extends PaymentOrder {

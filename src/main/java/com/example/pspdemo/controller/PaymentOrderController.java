@@ -1,6 +1,7 @@
 package com.example.pspdemo.controller;
 
 import com.example.pspdemo.entity.PaymentOrder;
+import com.example.pspdemo.service.BusinessException;
 import com.example.pspdemo.service.PaymentOrderService;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +18,7 @@ public class PaymentOrderController {
     }
 
     @PostMapping
-    public PaymentOrder createOrder(@RequestBody PaymentOrder order) {
+    public PaymentOrder createOrder(@RequestBody PaymentOrder order) throws BusinessException {
         return service.createOrder(order);
     }
 

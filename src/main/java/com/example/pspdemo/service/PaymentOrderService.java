@@ -3,6 +3,7 @@ package com.example.pspdemo.service;
 import com.example.pspdemo.entity.PaymentOrder;
 import com.example.pspdemo.repository.PaymentOrderRepository;
 import org.springframework.stereotype.Service;
+import com.example.pspdemo.entity.AlipayOrder;
 
 import java.util.List;
 
@@ -15,7 +16,17 @@ public class PaymentOrderService {
         this.repository = repository;
     }
 
-    public PaymentOrder createOrder(PaymentOrder order) {
+    public PaymentOrder createOrder(PaymentOrder order) throws BusinessException {
+        if (order instanceof AlipayOrder) {
+            AlipayOrder alipayOrder = (AlipayOrder) order;
+            String transactionId = alipayOrder.getAlipayTransactionId();
+            if (transactionId == null || transactionId.isEmpty()) {
+                throw new BusinessException("交易号不能为空");
+            }
+            if (!transactionId.matches("\\d{16}")) {
+                throw new BusinessException("交易号非法");
+            }
+        }
         return repository.save(order);
     }
 
